@@ -12,16 +12,11 @@ export const Login = () => {
   const handleToggle = () => {
     setShowLogin(!showLogin);
   };
-  const handleOnClick = () => {
-    axios
-      .get("http://localhost:5000/api/auth/google/callback")
-      .then((response) => {
-        // Do something with the response data
+  const handleonclick = () => {
+    window
+      .open("http://localhost:3000/api/auth/google/callback", "_self")
+      .then(() => {
         handleToggle();
-      })
-      .catch((error) => {
-        // Handle any error that occurred while making the request
-        console.log(error);
       });
   };
 
