@@ -4,7 +4,7 @@ import AXIOS from "./utils/AXIOS";
 import axios from "axios";
 
 // API endpoint for checking login status
-const CHECK_LOGIN_API = "http://localhost:3000/api/checkLogin";
+const CHECK_LOGIN_API = "http://35.198.250.19/api/checkLogin";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const [authenticated, setAuthenticated] = useState(null); // set initial state to null
