@@ -12,11 +12,16 @@ export const Login = () => {
   const handleToggle = () => {
     setShowLogin(!showLogin);
   };
-  const handleonclick = () => {
-    window
-      .open("http://localhost:5000/api/auth/google/callback", "_self")
-      .then(() => {
+  const handleOnClick = () => {
+    axios
+      .get("http://localhost:5000/api/auth/google/callback")
+      .then((response) => {
+        // Do something with the response data
         handleToggle();
+      })
+      .catch((error) => {
+        // Handle any error that occurred while making the request
+        console.log(error);
       });
   };
 
@@ -26,7 +31,7 @@ export const Login = () => {
       const { data } = await AXIOS.get("/auth/login/success", {
         withCredentials: true,
       });
-  
+
       setUser(data.user);
       localStorage.setItem("accessToken", data.accessToken);
       navigate("/", { replace: true });
